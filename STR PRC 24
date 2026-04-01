@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+class WordCounter {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a sentence: ");
+        String sentence = sc.nextLine().trim();
+
+        if (sentence.isEmpty()) {
+            System.out.println("Total words: 0");
+        } else {
+            // Split on one or more spaces
+            String[] words = sentence.split("\\s+");
+            System.out.println("Total words: " + words.length);
+        }
+    }
+}
