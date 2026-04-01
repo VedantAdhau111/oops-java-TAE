@@ -1,0 +1,22 @@
+class RailwayReservation {
+    int tickets = 1;
+
+    synchronized void book() {
+        if (tickets > 0) {
+            System.out.println("Ticket booked successfully");
+            tickets--;
+        } else {
+            System.out.println("No tickets available");
+        }
+    }
+
+    public static void main(String[] args) {
+        RailwayReservation r = new RailwayReservation();
+
+        Thread t1 = new Thread(() -> r.book());
+        Thread t2 = new Thread(() -> r.book());
+
+        t1.start();
+        t2.start();
+    }
+}
