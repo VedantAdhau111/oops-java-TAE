@@ -1,0 +1,26 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+class FileProcessingSystem {
+    public static void main(String[] args) {
+        Scanner sc = null;
+        try {
+            File file = new File("example.txt"); // replace with your file path
+            sc = new Scanner(file);
+
+            System.out.println("Reading file contents:");
+            while (sc.hasNextLine()) {
+                System.out.println(sc.nextLine());
+            }
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Error: File not found.");
+        } finally {
+            if (sc != null) {
+                sc.close();
+            }
+            System.out.println("Closing file resources");
+        }
+    }
+}
