@@ -1,0 +1,53 @@
+
+import java.util.*;
+
+class Book {
+    String title, author;
+    double price;
+
+    // Constructor
+    Book(String t, String a, double p) {
+        title = t;
+        author = a;
+        price = p;
+    }
+
+    // Method to display book details
+    void display() {
+        System.out.printf("%s | %s | %.2f%n", title, author, price);
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of books: ");
+        int n = sc.nextInt();
+        sc.nextLine(); // consume leftover newline
+
+        Book[] books = new Book[n];
+
+        for (int i = 0; i < n; i++) {
+            System.out.println("\nEnter details for Book " + (i + 1) + ":");
+            System.out.print("Title: ");
+            String t = sc.nextLine();
+            System.out.print("Author: ");
+            String a = sc.nextLine();
+            System.out.print("Price: ");
+            double p = sc.nextDouble();
+            sc.nextLine(); // consume leftover newline
+
+            books[i] = new Book(t, a, p);
+        }
+
+        System.out.println("\nBooks entered:");
+        System.out.println("Title | Author | Price");
+        System.out.println("-----------------------");
+
+        for (Book b : books) {
+            b.display();
+        }
+
+        sc.close();
+    }
+}
