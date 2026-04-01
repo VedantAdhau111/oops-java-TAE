@@ -1,0 +1,49 @@
+class Shape {
+    public void display() {
+        System.out.println("This is a shape");
+    }
+
+    public void area() {
+        System.out.println("Area not defined");
+    }
+}
+
+class Circle extends Shape {
+    double r;
+
+    Circle(double r) {
+        this.r = r;
+    }
+
+    @Override
+    public void area() {
+        System.out.println("Circle Area: " + (Math.PI * r * r));
+    }
+}
+
+class Rectangle extends Shape {
+    int l, b;
+
+    Rectangle(int l, int b) {
+        this.l = l;
+        this.b = b;
+    }
+
+    @Override
+    public void area() {
+        System.out.println("Rectangle Area: " + (l * b));
+    }
+}
+
+public class prac11{
+    public static void main(String[] args) {
+        Shape s1 = new Circle(5);
+        Shape s2 = new Rectangle(4, 6);
+
+        s1.display();
+        s1.area();
+
+        s2.display();
+        s2.area();
+    }
+}
