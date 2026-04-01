@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+class MessageFormatter {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first name: ");
+        String first = sc.nextLine().trim(); // remove extra spaces
+
+        System.out.print("Enter last name: ");
+        String last = sc.nextLine().trim(); // remove extra spaces
+
+        if (first.isEmpty() || last.isEmpty()) {
+            System.out.println("Error: Both first and last names must be provided.");
+        } else {
+            // Capitalize first letter of each name
+            first = first.substring(0,1).toUpperCase() + first.substring(1).toLowerCase();
+            last = last.substring(0,1).toUpperCase() + last.substring(1).toLowerCase();
+
+            String full = first + " " + last;
+            System.out.println("Full Name: " + full);
+        }
+    }
+}
