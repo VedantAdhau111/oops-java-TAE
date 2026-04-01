@@ -1,0 +1,21 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+class StudentInputSystem {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter student age: ");
+
+        try {
+            int age = sc.nextInt();
+
+            if (age <= 0) {
+                System.out.println("Invalid age. Age must be positive.");
+            } else {
+                System.out.println("Student age is: " + age);
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter a number.");
+        }
+    }
+}
