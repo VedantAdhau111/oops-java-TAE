@@ -1,0 +1,22 @@
+class TextProcessingBuilder {
+    public static void main(String[] args) {
+        // Create a StringBuilder object
+        StringBuilder sb = new StringBuilder("Hello");
+
+        // Append text
+        sb.append(" Java");
+        System.out.println("After append: " + sb);
+
+        // Insert text at a specific position
+        sb.insert(5, " World");
+        System.out.println("After insert: " + sb);
+
+        // Reverse the text
+        sb.reverse();
+        System.out.println("After reverse: " + sb);
+
+        // Notes:
+        // StringBuilder is faster because it is not synchronized.
+        // StringBuffer is thread-safe because it is synchronized.
+    }
+}
