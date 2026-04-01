@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+class StudentNameComparison {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first student name: ");
+        String name1 = sc.nextLine().trim();
+
+        System.out.print("Enter second student name: ");
+        String name2 = sc.nextLine().trim();
+
+        if (name1.equals(name2))
+            System.out.println("Case-sensitive: Same");
+        else
+            System.out.println("Case-sensitive: Different");
+
+        if (name1.equalsIgnoreCase(name2))
+            System.out.println("Case-insensitive: Same");
+        else
+            System.out.println("Case-insensitive: Different");
+    }
+}
