@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+class UsernameValidator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter username: ");
+        String username = sc.nextLine();
+
+        username = username.trim().toLowerCase();  // clean input
+
+        if (isValidUsername(username)) {
+            System.out.println("Valid username: " + username);
+        } else {
+            System.out.println("Invalid username. Must be 5-15 chars, start with a letter, and contain only letters, numbers, or underscores.");
+        }
+    }
+
+    public static boolean isValidUsername(String username) {
+        if (username.length() < 5 || username.length() > 15) return false;
+        if (!Character.isLetter(username.charAt(0))) return false;
+        return username.matches("[a-z0-9_]+");
+    }
+}
