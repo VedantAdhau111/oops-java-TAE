@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+class PasswordMaskingSystem {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter your password: ");
+        String pass = sc.nextLine().trim();
+
+        if (pass.length() <= 2) {
+            // If password is 2 characters or less, show it as is
+            System.out.println("Masked password: " + pass);
+        } else {
+            // Mask all characters except the last 2
+            String masked = "*".repeat(pass.length() - 2) + pass.substring(pass.length() - 2);
+            System.out.println("Masked password: " + masked);
+        }
+    }
+}
