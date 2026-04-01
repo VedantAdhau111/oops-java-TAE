@@ -1,0 +1,37 @@
+
+import java.util.*;
+
+class Pract4 {
+    int Rno, Days;
+    String Name;
+    double Charges;
+
+    double Compute() {
+        double amt = Days * Charges;
+        if (amt > 11000)
+            amt = amt * 1.02;
+        return amt;
+    }
+
+    void Getinfo() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Room No:");
+        Rno = sc.nextInt();
+        System.out.println("Enter Name:");
+        Name = sc.next();
+        System.out.println("Enter Charges per day:");
+        Charges = sc.nextDouble();
+        System.out.println("Enter No. of Days:");
+        Days = sc.nextInt();
+    }
+
+    void DispInfo() {
+        System.out.println(Rno + " " + Name + " " + Charges + " " + Days + " " + Compute());
+    }
+
+    public static void main(String[] args) {
+        Pract4 r = new Pract4();
+        r.Getinfo();
+        r.DispInfo();
+    }
+}
