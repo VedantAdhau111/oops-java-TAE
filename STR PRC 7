@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+class EmailChecker {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter your email: ");
+        String email = sc.nextLine().trim().toLowerCase(); // Remove spaces and make lowercase
+
+        if (isValidGmail(email)) {
+            System.out.println("Valid Gmail Address");
+        } else {
+            System.out.println("Invalid Email");
+        }
+    }
+
+    // Method to check if email is a valid Gmail
+    public static boolean isValidGmail(String email) {
+        // Must end with "@gmail.com"
+        if (!email.endsWith("@gmail.com")) return false;
+
+        // Extract the part before "@gmail.com"
+        String usernamePart = email.substring(0, email.indexOf("@"));
+        
+        // Must have at least one character before "@"
+        if (usernamePart.isEmpty()) return false;
+
+        // Username can only contain letters, digits, dot, or underscore
+        if (!usernamePart.matches("[a-z0-9._]+")) return false;
+
+        return true; // All checks passed
+    }
+}
