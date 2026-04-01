@@ -1,0 +1,54 @@
+
+
+abstract class Employee {
+    String name;
+    int id;
+
+    // Constructor
+    Employee(String n, int i) {
+        name = n;
+        id = i;
+    }
+
+    // Abstract method
+    abstract double calculateBonus();
+}
+
+class Manager extends Employee {
+    double salary;
+
+    Manager(String n, int i, double s) {
+        super(n, i);
+        salary = s;
+    }
+
+    @Override
+    double calculateBonus() {
+        return 0.2 * salary;
+    }
+}
+
+class Developer extends Employee {
+    double salary, incentive;
+
+    Developer(String n, int i, double s, double inc) {
+        super(n, i);
+        salary = s;
+        incentive = inc;
+    }
+
+    @Override
+    double calculateBonus() {
+        return 0.1 * salary + incentive;
+    }
+}
+
+public class prac13 {
+    public static void main(String[] args) {
+        Employee e1 = new Manager("John", 1, 50000);
+        Employee e2 = new Developer("Alice", 2, 40000, 5000);
+
+        System.out.println("Manager Bonus: " + e1.calculateBonus());
+        System.out.println("Developer Bonus: " + e2.calculateBonus());
+    }
+}
