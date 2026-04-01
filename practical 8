@@ -1,0 +1,40 @@
+
+interface Filterable {
+    void applyFilter(String type);
+    void resetFilter();
+}
+
+class ImageProcessor implements Filterable {
+    @Override
+    public void applyFilter(String type) {
+        System.out.println("Applying image filter: " + type);
+    }
+
+    @Override
+    public void resetFilter() {
+        System.out.println("Image filter reset");
+    }
+}
+
+class DataAnalyzer implements Filterable {
+    @Override
+    public void applyFilter(String type) {
+        System.out.println("Applying data filter: " + type);
+    }
+
+    @Override
+    public void resetFilter() {
+        System.out.println("Data filter reset");
+    }
+
+    public static void main(String[] args) {
+        Filterable i = new ImageProcessor();
+        Filterable d = new DataAnalyzer();
+
+        i.applyFilter("blur");
+        i.resetFilter();
+
+        d.applyFilter("sort");
+        d.resetFilter();
+    }
+}
